@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <title>NawFas - Développeur Web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Favicon simple (tu peux remplacer le lien par ton icône) -->
+  <link rel="icon" href="https://via.placeholder.com/32/00ffff/000000?text=N" type="image/png">
+
   <style>
     body {
       background-color: #121212;
@@ -12,6 +16,11 @@
       text-align: center;
       padding: 50px 20px;
       margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     img {
@@ -21,6 +30,7 @@
       margin-bottom: 25px;
       object-fit: cover;
       border: 3px solid #00ffff;
+      box-shadow: 0 0 15px #00ffffaa;
     }
 
     h1 {
@@ -43,11 +53,45 @@
       border: 1px solid #0ff;
       border-radius: 8px;
       transition: background 0.3s, color 0.3s;
+      font-weight: 600;
     }
 
     a:hover {
       background-color: #0ff;
       color: #000;
+    }
+
+    /* Player audio en bas à droite */
+    #audio-player {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0, 255, 255, 0.1);
+      border: 1px solid #0ff;
+      border-radius: 12px;
+      padding: 10px;
+      box-shadow: 0 0 12px #00ffffa0;
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      user-select: none;
+    }
+
+    #play-btn {
+      background: none;
+      border: none;
+      color: #0ff;
+      font-size: 20px;
+      cursor: pointer;
+      outline-offset: 3px;
+    }
+
+    #audio-title {
+      color: #0ff;
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
     }
   </style>
 </head>
@@ -60,9 +104,28 @@
   <a href="https://haunt.gg/buy" target="_blank">haunt.gg</a>
   <a href="https://discord.com/users/622098045110190080" target="_blank">Discord</a>
   <a href="https://namemc.com/profile/NawFas" target="_blank">NameMC</a>
-  <a href="https://open.spotify.com/user/31pbha3bzpzblgijzujj5hrpwj7m" target="_blank">Twitch</a>
-<a href="https://www.youtube.com/@9H13" target="_blank">YouTube</a>
+  <a href="https://open.spotify.com/user/31pbha3bzpzblgijzujj5hrpwj7m" target="_blank">Spotify</a>
+  <a href="https://www.youtube.com/@9H13" target="_blank">YouTube</a>
 
+  <div id="audio-player">
+    <button id="play-btn" aria-label="Play/Pause musique">▶️</button>
+    <div id="audio-title">Hasta la vista - PNL</div>
+    <audio id="bg-music" src="https://cdn.jsdelivr.net/gh/himalayadev/himalaya-web-audio/sample/HastaLaVista_PNL.mp3" preload="auto" loop></audio>
+  </div>
+
+  <script>
+    const audio = document.getElementById('bg-music');
+    const playBtn = document.getElementById('play-btn');
+
+    playBtn.addEventListener('click', () => {
+      if(audio.paused) {
+        audio.play();
+        playBtn.textContent = '⏸️';
+      } else {
+        audio.pause();
+        playBtn.textContent = '▶️';
+      }
+    });
+  </script>
 </body>
 </html>
-
