@@ -23,7 +23,7 @@
       align-items: center;
     }
 
-    img {
+    img.profile {
       width: 140px;
       height: 140px;
       border-radius: 50%;
@@ -45,7 +45,8 @@
     }
 
     a {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
       margin: 10px 10px 0 10px;
       color: #0ff;
       text-decoration: none;
@@ -54,11 +55,18 @@
       border-radius: 8px;
       transition: background 0.3s, color 0.3s;
       font-weight: 600;
+      gap: 8px;
     }
 
     a:hover {
       background-color: #0ff;
       color: #000;
+    }
+
+    a img.icon {
+      width: 24px;
+      height: 24px;
+      display: inline-block;
     }
 
     /* Player audio en bas à droite */
@@ -96,16 +104,35 @@
   </style>
 </head>
 <body>
-  <img src="https://via.placeholder.com/140" alt="Photo de profil">
+  <img class="profile" src="https://via.placeholder.com/140" alt="Photo de profil">
   <h1>NawFas</h1>
   <p>Développeur Web & le grand a myamo</p>
 
-  <a href="https://guns.lol/pdg" target="_blank">guns.lol</a>
-  <a href="https://haunt.gg/buy" target="_blank">haunt.gg</a>
-  <a href="https://discord.com/users/622098045110190080" target="_blank">Discord</a>
-  <a href="https://namemc.com/profile/NawFas" target="_blank">NameMC</a>
-  <a href="https://open.spotify.com/user/31pbha3bzpzblgijzujj5hrpwj7m" target="_blank">Spotify</a>
-  <a href="https://www.youtube.com/@9H13" target="_blank">YouTube</a>
+  <a href="https://guns.lol/pdg" target="_blank">
+    <img class="icon" src="https://i.imgur.com/gunslol.png" alt="guns.lol logo">
+    guns.lol
+  </a>
+  <a href="https://haunt.gg/buy" target="_blank">
+    <img class="icon" src="https://i.imgur.com/kzD3nDk.png" alt="haunt.gg logo">
+    haunt.gg
+  </a>
+  <a href="https://discord.com/users/622098045110190080" target="_blank">
+    <img class="icon" src="https://i.imgur.com/KiywElo.png" alt="Discord logo">
+    Discord
+  </a>
+  <a href="https://namemc.com/profile/NawFas" target="_blank">
+    <img class="icon" src="https://i.imgur.com/kWimggv.jpeg" alt="NameMC logo">
+    NameMC
+  </a>
+  <a href="https://open.spotify.com/user/31pbha3bzpzblgijzujj5hrpwj7m" target="_blank">
+    <img class="icon" src="https://i.imgur.com/MjL7KCJ.png" alt="Spotify logo">
+    Spotify
+  </a>
+  <a href="https://www.youtube.com/@9H13" target="_blank">
+    <img class="icon" src="https://i.imgur.com/fiYUGOz.png" alt="YouTube logo">
+    YouTube
+  </a>
+  <a href="https://twitter.com/latyzance" target="_blank">Twitter</a>
 
   <div id="audio-player">
     <button id="play-btn" aria-label="Play/Pause musique">▶️</button>
