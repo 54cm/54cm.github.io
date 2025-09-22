@@ -4,23 +4,38 @@
   <meta charset="UTF-8" />
   <title>NawFas - Développeur Web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-  <!-- Favicon simple (tu peux remplacer le lien par ton icône) -->
   <link rel="icon" href="https://via.placeholder.com/32/00ffff/000000?text=N" type="image/png">
 
   <style>
+    /* Reset basique */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
+    }
+
     body {
       background-color: #121212;
       color: #eee;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Inter', sans-serif;
       text-align: center;
-      padding: 50px 20px;
-      margin: 0;
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      /* le scroll vertical, tout centré */
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 500px;
+      width: 100%;
+      margin: auto;
     }
 
     img.profile {
@@ -34,20 +49,28 @@
     }
 
     h1 {
-      font-size: 36px;
+      font-size: 2.5rem;
       margin-bottom: 10px;
     }
 
     p {
-      font-size: 18px;
+      font-size: 1.2rem;
       opacity: 0.8;
       margin: 5px 0 30px 0;
     }
 
-    a {
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .links a {
       display: inline-flex;
       align-items: center;
-      margin: 10px 10px 0 10px;
+      width: 100%;
+      max-width: 300px;
       color: #0ff;
       text-decoration: none;
       padding: 12px 20px;
@@ -55,21 +78,21 @@
       border-radius: 8px;
       transition: background 0.3s, color 0.3s;
       font-weight: 600;
-      gap: 8px;
+      gap: 10px;
+      justify-content: center;
     }
 
-    a:hover {
+    .links a:hover {
       background-color: #0ff;
       color: #000;
     }
 
-    a img.icon {
+    .links img.icon {
       width: 24px;
       height: 24px;
       display: inline-block;
     }
 
-    /* Player audio en bas à droite */
     #audio-player {
       position: fixed;
       bottom: 20px;
@@ -92,7 +115,7 @@
       color: #0ff;
       font-size: 20px;
       cursor: pointer;
-      outline-offset: 3px;
+      outline: none;
     }
 
     #audio-title {
@@ -101,42 +124,61 @@
       font-weight: 600;
       white-space: nowrap;
     }
+
+    @media (min-width: 600px) {
+      h1 {
+        font-size: 3rem;
+      }
+      p {
+        font-size: 1.4rem;
+      }
+    }
   </style>
+  <!-- Ajouter une police propre depuis Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <img class="profile" src="https://via.placeholder.com/140" alt="Photo de profil">
-  <h1>NawFas</h1>
-  <p>Développeur Web & le grand a myamo</p>
+  <div class="container">
+    <img class="profile" src="https://via.placeholder.com/140" alt="Photo de profil">
+    <h1>NawFas</h1>
+    <p>Développeur Web & le grand a myamo</p>
 
-  <a href="https://guns.lol/pdg" target="_blank">
-    <img class="icon" src="https://i.imgur.com/gunslol.png" alt="guns.lol logo">
-    guns.lol
-  </a>
-  <a href="https://haunt.gg/buy" target="_blank">
-    <img class="icon" src="https://i.imgur.com/kzD3nDk.png" alt="haunt.gg logo">
-    haunt.gg
-  </a>
-  <a href="https://discord.com/users/622098045110190080" target="_blank">
-    <img class="icon" src="https://i.imgur.com/KiywElo.png" alt="Discord logo">
-    Discord
-  </a>
-  <a href="https://namemc.com/profile/NawFas" target="_blank">
-    <img class="icon" src="https://i.imgur.com/kWimggv.jpeg" alt="NameMC logo">
-    NameMC
-  </a>
-  <a href="https://open.spotify.com/user/31pbha3bzpzblgijzujj5hrpwj7m" target="_blank">
-    <img class="icon" src="https://i.imgur.com/MjL7KCJ.png" alt="Spotify logo">
-    Spotify
-  </a>
-  <a href="https://www.youtube.com/@9H13" target="_blank">
-    <img class="icon" src="https://i.imgur.com/fiYUGOz.png" alt="YouTube logo">
-    YouTube
-  </a>
-  <a href="https://twitter.com/latyzance" target="_blank">Twitter</a>
+    <div class="links">
+      <a href="https://guns.lol/pdg" target="_blank">
+        <img class="icon" src="https://i.imgur.com/gunslol.png" alt="guns.lol logo">
+        guns.lol
+      </a>
+      <a href="https://haunt.gg/buy" target="_blank">
+        <img class="icon" src="https://i.imgur.com/kzD3nDk.png" alt="haunt.gg logo">
+        haunt.gg
+      </a>
+      <a href="https://discord.com/users/622098045110190080" target="_blank">
+        <img class="icon" src="https://i.imgur.com/KiywElo.png" alt="Discord logo">
+        Discord
+      </a>
+      <a href="https://namemc.com/profile/NawFas" target="_blank">
+        <img class="icon" src="https://i.imgur.com/kWimggv.jpeg" alt="NameMC logo">
+        NameMC
+      </a>
+      <a href="https://open.spotify.com/user/31pbha3bzpzblgijzujj5hrpwj7m" target="_blank">
+        <img class="icon" src="https://i.imgur.com/MjL7KCJ.png" alt="Spotify logo">
+        Spotify
+      </a>
+      <a href="https://www.youtube.com/@9H13" target="_blank">
+        <img class="icon" src="https://i.imgur.com/fiYUGOz.png" alt="YouTube logo">
+        YouTube
+      </a>
+      <a href="https://t.me/tontelegram" target="_blank">
+        <!-- Remplace par le lien Telegram que tu veux -->
+        <img class="icon" src="https://i.imgur.com/Telegram_logo.png" alt="Telegram logo">
+        Telegram
+      </a>
+    </div>
+  </div>
 
   <div id="audio-player">
     <button id="play-btn" aria-label="Play/Pause musique">▶️</button>
-    <div id="audio-title">Hasta la vista - PNL</div>
+    <div id="audio-title">Musique de fond</div>
     <audio id="bg-music" src="https://cdn.jsdelivr.net/gh/himalayadev/himalaya-web-audio/sample/HastaLaVista_PNL.mp3" preload="auto" loop></audio>
   </div>
 
@@ -145,7 +187,7 @@
     const playBtn = document.getElementById('play-btn');
 
     playBtn.addEventListener('click', () => {
-      if(audio.paused) {
+      if (audio.paused) {
         audio.play();
         playBtn.textContent = '⏸️';
       } else {
