@@ -61,42 +61,10 @@
       margin: auto;
     }
 
-    /* Links section */
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .links a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.05);
-      padding: 14px 20px;
-      border: 1px solid var(--accent);
-      border-radius: 10px;
-      transition: 0.3s ease;
-      font-weight: 500;
-      gap: 10px;
-    }
-
-    .links a:hover {
-      background: var(--accent);
-      color: #000;
-    }
-
-    .icon {
-      width: 24px;
-      height: 24px;
-    }
-
     /* Programs & Skills section */
     #programs {
-      margin-top: 50px;
+      margin-top: 20px;
+      margin-bottom: 50px;
     }
 
     #programs .skills-list {
@@ -130,17 +98,82 @@
       filter: drop-shadow(0 0 2px var(--accent));
     }
 
-    #programs h2 {
-      margin-bottom: 10px;
+    /* Links section */
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 14px 20px;
+      border: 1px solid var(--accent);
+      border-radius: 10px;
+      transition: 0.3s ease;
+      font-weight: 500;
+      gap: 10px;
+    }
+
+    .links a:hover {
+      background: var(--accent);
+      color: #000;
+    }
+
+    .icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Children section (inspired by Joy) */
+    #children {
+      max-width: 800px;
+      margin: 60px auto 40px;
       text-align: center;
     }
 
-    footer {
-      text-align: center;
-      padding: 60px 20px 30px;
-      opacity: 0.4;
-      font-size: 0.9rem;
+    #children h2 {
+      margin-bottom: 20px;
     }
+
+    #children .children-list {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    #children .child {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80px;
+      text-align: center;
+      color: var(--text);
+      opacity: 0.85;
+      transition: opacity 0.3s ease;
+      text-decoration: none;
+    }
+
+    #children .child:hover {
+      opacity: 1;
+    }
+
+    #children .child img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 8px #a259ff88;
+      margin-bottom: 8px;
+    }
+
   </style>
 </head>
 <body>
@@ -150,20 +183,6 @@
     <h1>NawFas</h1>
     <p class="description">Web developer & le grand a Myamo.</p>
   </header>
-
-  <section id="links">
-    <h2>My Links</h2>
-    <div class="links">
-      <a href="https://guns.lol/pdg" target="_blank"><img class="icon" src="https://i.imgur.com/652lgtx.png" alt="guns.lol icon" /> guns.lol</a>
-      <a href="https://haunt.gg/buy" target="_blank"><img class="icon" src="https://i.imgur.com/kzD3nDk.png" alt="haunt.gg icon" /> haunt.gg</a>
-      <a href="https://discord.com/users/622098045110190080" target="_blank"><img class="icon" src="https://i.imgur.com/KiywElo.png" alt="Discord icon" /> Discord</a>
-      <a href="https://namemc.com/profile/NawFas" target="_blank"><img class="icon" src="https://i.imgur.com/kWimggv.jpeg" alt="NameMC icon" /> NameMC</a>
-      <a href="https://open.spotify.com/user/31pbha3bzpzblgijzujj5hrpwj7m" target="_blank"><img class="icon" src="https://i.imgur.com/MjL7KCJ.png" alt="Spotify icon" /> Spotify</a>
-      <a href="https://www.youtube.com/@9H13" target="_blank"><img class="icon" src="https://i.imgur.com/fiYUGOz.png" alt="YouTube icon" /> YouTube</a>
-      <a href="https://t.me/nawfas" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram icon" /> Telegram @nawfas</a>
-      <a href="https://t.me/tyzance" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram icon" /> Telegram @tyzance</a>
-    </div>
-  </section>
 
   <section id="programs">
     <h2>Programs & Skills</h2>
@@ -203,9 +222,37 @@
     </div>
   </section>
 
+  <section id="links">
+    <h2>My Links</h2>
+    <div class="links">
+      <a href="https://guns.lol/pdg" target="_blank"><img class="icon" src="https://i.imgur.com/652lgtx.png" alt="guns.lol icon" /> guns.lol</a>
+      <a href="https://haunt.gg/buy" target="_blank"><img class="icon" src="https://i.imgur.com/kzD3nDk.png" alt="haunt.gg icon" /> haunt.gg</a>
+      <a href="https://discord.com/users/622098045110190080" target="_blank"><img class="icon" src="https://i.imgur.com/KiywElo.png" alt="Discord icon" /> Discord</a>
+      <a href="https://namemc.com/profile/NawFas" target="_blank"><img class="icon" src="https://i.imgur.com/kWimggv.jpeg" alt="NameMC icon" /> NameMC</a>
+      <a href="https://open.spotify.com/user/31pbha3bzpzblgijzujj5hrpwj7m" target="_blank"><img class="icon" src="https://i.imgur.com/MjL7KCJ.png" alt="Spotify icon" /> Spotify</a>
+      <a href="https://www.youtube.com/@9H13" target="_blank"><img class="icon" src="https://i.imgur.com/fiYUGOz.png" alt="YouTube icon" /> YouTube</a>
+      <a href="https://t.me/nawfas" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram icon" /> Telegram @nawfas</a>
+      <a href="https://t.me/tyzance" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram icon" /> Telegram @tyzance</a>
+    </div>
+  </section>
+
   <section id="contact">
     <h2>Contact Me</h2>
     <p>You can DM me on <a href="https://discord.com/users/622098045110190080" target="_blank" style="color: var(--accent);">Discord</a> or <a href="https://t.me/nawfas" target="_blank" style="color: var(--accent);">Telegram</a>.</p>
+  </section>
+
+  <!-- SECTION ENFANTS -->
+  <section id="children">
+    <h2>My Children</h2>
+    <div class="children-list">
+      <!-- Exemple d'enfant -->
+      <a class="child" href="https://discord.com/users/123456789012345678" target="_blank" title="Pseudo#1234">
+        <img src="https://cdn.discordapp.com/avatars/123456789012345678/avatarhash.png?size=64" alt="Pseudo avatar" />
+        Pseudo#1234
+      </a>
+
+      <!-- Tu me donnes la liste, je l'ajoute ici -->
+    </div>
   </section>
 
   <footer>
