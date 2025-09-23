@@ -9,8 +9,7 @@
 
   <style>
     :root{
-      --bg:#0b0b0c; /* page background (dark) */
-      --glass: rgba(255,255,255,0.06); /* glass card */
+      --glass: rgba(255,255,255,0.06); 
       --glass-strong: rgba(255,255,255,0.12);
       --text: rgba(255,255,255,0.95);
       --muted: rgba(255,255,255,0.7);
@@ -19,8 +18,24 @@
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
-    body{display:flex;flex-direction:column;min-height:100vh}
+    html,body{height:100%;font-family:'Inter',sans-serif;color:var(--text);-webkit-font-smoothing:antialiased}
+
+    /* 🌌 Fond animé style joy */
+    body {
+      margin: 0;
+      height: 100vh;
+      background: radial-gradient(circle at 20% 20%, #3a0ca3, transparent 40%),
+                  radial-gradient(circle at 80% 80%, #7209b7, transparent 40%),
+                  radial-gradient(circle at 50% 50%, #560bad, transparent 50%);
+      background-size: 200% 200%;
+      animation: gradientMove 16s ease-in-out infinite alternate;
+      display:flex;flex-direction:column;
+    }
+
+    @keyframes gradientMove {
+      0% {background-position: 20% 20%, 80% 80%, 50% 50%;}
+      100% {background-position: 80% 30%, 20% 70%, 60% 40%;}
+    }
 
     .sr-only{position:absolute !important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;border:0;padding:0;margin:-1px}
 
@@ -31,13 +46,14 @@
       justify-content:center;
       padding:60px 20px;
       position:relative;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      background: transparent;
       overflow:hidden;
     }
 
     header::before{
-      content:'';position:absolute;inset:0;backdrop-filter: blur(8px) saturate(120%);-webkit-backdrop-filter: blur(8px) saturate(120%);
-      background: radial-gradient(closest-side, rgba(255,255,255,0.015), transparent 40%);
+      content:'';position:absolute;inset:0;
+      backdrop-filter: blur(8px) saturate(120%);
+      -webkit-backdrop-filter: blur(8px) saturate(120%);
       pointer-events:none;
     }
 
@@ -54,10 +70,14 @@
       flex-direction:column;
       align-items:center;
       gap:18px;
+      position:relative;
+      z-index:1;
     }
 
     .profile{
-      width:140px;height:140px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,0.9);box-shadow:0 6px 30px rgba(0,0,0,0.6);
+      width:140px;height:140px;border-radius:50%;object-fit:cover;
+      border:3px solid rgba(255,255,255,0.9);
+      box-shadow:0 6px 30px rgba(0,0,0,0.6);
     }
 
     h1{font-size:2.4rem;color:var(--accent);letter-spacing:0.2px}
@@ -67,7 +87,8 @@
 
     .link-btn{
       width:56px;height:56px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;
-      background:linear-gradient(180deg,var(--glass-strong),var(--glass));border:1px solid rgba(255,255,255,0.06);
+      background:linear-gradient(180deg,var(--glass-strong),var(--glass));
+      border:1px solid rgba(255,255,255,0.06);
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
       transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
@@ -77,7 +98,7 @@
 
     .link-btn:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,6,23,0.6)}
 
-    .link-btn img{width:26px;height:26px;object-fit:contain;filter:invert(1) saturate(0) brightness(2)}
+    .link-btn img{width:26px;height:26px;object-fit:contain}
 
     .link-btn[title]{position:relative}
     .link-btn[title]:hover::after{
@@ -89,7 +110,9 @@
     section{padding:40px 20px;max-width:920px;margin:0 auto}
 
     .skills{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
-    .skill{width:110px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);display:flex;flex-direction:column;align-items:center;gap:8px}
+    .skill{width:110px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);
+      display:flex;flex-direction:column;align-items:center;gap:8px}
     .skill img{width:36px;height:36px;filter:invert(1) saturate(0) brightness(2)}
     .skill span{font-size:13px;color:var(--muted)}
 
@@ -115,40 +138,41 @@
       <p class="lead">Web developer & Le Grand a Myamo.</p>
 
       <div class="links" aria-label="Liens rapides">
+        <!-- ✅ Guns.lol logo corrigé (blanc sur fond violet foncé) -->
         <a class="link-btn" href="https://guns.lol/pdg" target="_blank" rel="noopener" title="guns.lol" aria-label="guns.lol">
-          <img src="https://i.imgur.com/652lgtx.png" alt="guns.lol" />
-          <span class="sr-only">guns.lol</span>
+          <img src="https://i.imgur.com/cEXdTHG.png" alt="guns.lol" />
         </a>
+
         <a class="link-btn" href="https://haunt.gg/buy" target="_blank" rel="noopener" title="haunt.gg" aria-label="haunt.gg">
           <img src="https://i.imgur.com/kzD3nDk.png" alt="haunt.gg" />
-          <span class="sr-only">haunt.gg</span>
         </a>
+
+        <!-- ✅ Discord officiel -->
         <a class="link-btn" href="https://discord.com/users/622098045110190080" target="_blank" rel="noopener" title="Discord" aria-label="Discord">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discord/discord-original.svg" alt="Discord" />
-          <span class="sr-only">Discord</span>
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord" style="filter:invert(1)" />
         </a>
+
         <a class="link-btn" href="https://namemc.com/profile/NawFas" target="_blank" rel="noopener" title="NameMC" aria-label="NameMC">
           <img src="https://i.imgur.com/kWimggv.jpeg" alt="NameMC" />
-          <span class="sr-only">NameMC</span>
         </a>
+
+        <!-- ✅ Spotify officiel -->
         <a class="link-btn" href="https://open.spotify.com/user/31pbha3bzpzblgijzujj5hrpwj7m" target="_blank" rel="noopener" title="Spotify" aria-label="Spotify">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spotify/spotify-original.svg" alt="Spotify" />
-          <span class="sr-only">Spotify</span>
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/spotify.svg" alt="Spotify" style="filter:invert(1)" />
         </a>
+
+        <!-- ✅ YouTube officiel -->
         <a class="link-btn" href="https://www.youtube.com/@9H13" target="_blank" rel="noopener" title="YouTube" aria-label="YouTube">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/youtube/youtube-original.svg" alt="YouTube" />
-          <span class="sr-only">YouTube</span>
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube" style="filter:invert(1)" />
         </a>
+
         <a class="link-btn" href="https://t.me/nawfas" target="_blank" rel="noopener" title="Telegram @nawfas" aria-label="Telegram @nawfas">
           <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" />
-          <span class="sr-only">Telegram @nawfas</span>
         </a>
         <a class="link-btn" href="https://t.me/tyzance" target="_blank" rel="noopener" title="Telegram @tyzance" aria-label="Telegram @tyzance">
           <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" />
-          <span class="sr-only">Telegram @tyzance</span>
         </a>
       </div>
-
     </div>
   </header>
 
@@ -170,34 +194,24 @@
     <h2 style="text-align:center;color:var(--accent)">Mes Enfants</h2>
     <div class="children-list">
       <a class="child" href="https://discord.com/users/274878108920709130" target="_blank" rel="noopener" title="cocorisss">
-        <img src="https://i.imgur.com/xtIqWIf.jpg" alt="cocorisss" onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/0.png';" />
+        <img src="https://i.imgur.com/xtIqWIf.jpg" alt="cocorisss" onerror="this.src='https://cdn.discordapp.com/embed/avatars/0.png';" />
         <span>cocorisss</span>
       </a>
       <a class="child" href="https://discord.com/users/629969824273006624" target="_blank" rel="noopener" title="kikem">
-        <img src="https://i.imgur.com/bDt6KiB.jpg" alt="kikem" onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/1.png';" />
+        <img src="https://i.imgur.com/bDt6KiB.jpg" alt="kikem" onerror="this.src='https://cdn.discordapp.com/embed/avatars/1.png';" />
         <span>kikem</span>
       </a>
       <a class="child" href="https://discord.com/users/680817639823769695" target="_blank" rel="noopener" title="kazha">
-        <img src="https://i.imgur.com/SbYZmTn.jpg" alt="kazha" onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/2.png';" />
+        <img src="https://i.imgur.com/SbYZmTn.jpg" alt="kazha" onerror="this.src='https://cdn.discordapp.com/embed/avatars/2.png';" />
         <span>kazha</span>
       </a>
       <a class="child" href="https://discord.com/users/1058790924253151292" target="_blank" rel="noopener" title="lerfif">
-        <img src="https://i.imgur.com/SjRXf4F.jpg" alt="lerfif" onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/3.png';" />
+        <img src="https://i.imgur.com/SjRXf4F.jpg" alt="lerfif" onerror="this.src='https://cdn.discordapp.com/embed/avatars/3.png';" />
         <span>lerfif</span>
       </a>
     </div>
   </section>
 
-  <footer>
-    © 2025 NawFas
-  </footer>
-
-  <script>
-    document.querySelectorAll('.link-btn').forEach(btn=>{
-      btn.addEventListener('focus',()=>btn.style.boxShadow='0 18px 40px rgba(2,6,23,0.6)');
-      btn.addEventListener('blur',()=>btn.style.boxShadow='0 6px 18px rgba(2,6,23,0.5)');
-    });
-  </script>
+  <footer>© 2025 NawFas</footer>
 </body>
 </html>
-
