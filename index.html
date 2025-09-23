@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>NawFas - Web Dev </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NawFas - Web Dev</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <link rel="icon" href="https://i.imgur.com/Ivn6c8P.jpeg" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://i.imgur.com/Ivn6c8P.jpeg" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -22,16 +22,28 @@
     }
 
     html, body {
+      height: 100%;
       font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
       scroll-behavior: smooth;
     }
 
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
     header {
+      height: 100vh; /* prend toute la hauteur de la fenêtre */
       padding: 80px 20px 40px;
       text-align: center;
       position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     .profile {
@@ -59,7 +71,7 @@
     /* Scroll down invite */
     #scroll-down {
       position: absolute;
-      bottom: 15px;
+      bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
       font-weight: 500;
@@ -71,8 +83,13 @@
       flex-direction: column;
       align-items: center;
       animation: bounce 2s infinite;
-      opacity: 1;
+      opacity: 0.6;
       transition: opacity 0.3s ease;
+      background: transparent;
+    }
+
+    #scroll-down:hover {
+      opacity: 1;
     }
 
     #scroll-down span {
@@ -223,14 +240,14 @@
       padding: 60px 20px 30px;
       opacity: 0.4;
       font-size: 0.9rem;
+      margin-top: auto;
     }
-
   </style>
 </head>
 <body>
 
   <header>
-    <img class="profile" src="https://i.imgur.com/xUg1vph.jpeg" alt="NawFas Profile Picture">
+    <img class="profile" src="https://i.imgur.com/xUg1vph.jpeg" alt="NawFas Profile Picture" />
     <h1>NawFas</h1>
     <p class="description">Web developer & le grand a Myamo.</p>
     <div id="scroll-down">
@@ -280,39 +297,112 @@
   <section id="links">
     <h2>My Links</h2>
     <div class="links">
-      <a href="https://guns.lol/pdg" target="_blank"><img class="icon" src="https://i.imgur.com/652lgtx.png"> guns.lol</a>
-      <a href="https://haunt.gg/buy" target="_blank"><img class="icon" src="https://i.imgur.com/kzD3nDk.png"> haunt.gg</a>
-      <a href="https://discord.com/users/622098045110190080" target="_blank"><img class="icon" src="https://i.imgur.com/KiywElo.png"> Discord</a>
-      <a href="https://namemc.com/profile/NawFas" target="_blank"><img class="icon" src="https://i.imgur.com/kWimggv.jpeg"> NameMC</a>
-      <a href="https://open.spotify.com/user/31pbha3bzpzblgijzujj5hrpwj7m" target="_blank"><img class="icon" src="https://i.imgur.com/MjL7KCJ.png"> Spotify</a>
-      <a href="https://www.youtube.com/@9H13" target="_blank"><img class="icon" src="https://i.imgur.com/fiYUGOz.png"> YouTube</a>
-      <a href="https://t.me/nawfas" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"> Telegram @nawfas</a>
-      <a href="https://t.me/tyzance" target="_blank"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"> Telegram @tyzance</a>
+      <a href="https://guns.lol/pdg" target="_blank"
+        ><img class="icon" src="https://i.imgur.com/652lgtx.png" /> guns.lol</a
+      >
+      <a href="https://haunt.gg/buy" target="_blank"
+        ><img class="icon" src="https://i.imgur.com/kzD3nDk.png" /> haunt.gg</a
+      >
+      <a href="https://discord.com/users/622098045110190080" target="_blank"
+        ><img class="icon" src="https://i.imgur.com/KiywElo.png" /> Discord</a
+      >
+      <a href="https://namemc.com/profile/NawFas" target="_blank"
+        ><img class="icon" src="https://i.imgur.com/kWimggv.jpeg" /> NameMC</a
+      >
+      <a href="https://open.spotify.com/user/31pbha3bzpzblgijzujj5hrpwj7m" target="_blank"
+        ><img class="icon" src="https://i.imgur.com/MjL7KCJ.png" /> Spotify</a
+      >
+      <a href="https://www.youtube.com/@9H13" target="_blank"
+        ><img class="icon" src="https://i.imgur.com/fiYUGOz.png" /> YouTube</a
+      >
+      <a href="https://t.me/nawfas" target="_blank"
+        ><img
+          class="icon"
+          src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
+        /> Telegram @nawfas</a
+      >
+      <a href="https://t.me/tyzance" target="_blank"
+        ><img
+          class="icon"
+          src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
+        /> Telegram @tyzance</a
+      >
     </div>
   </section>
 
   <section id="contact">
     <h2>Contact Me</h2>
-    <p>You can DM me on <a href="https://discord.com/users/622098045110190080" target="_blank" style="color: var(--accent);">Discord</a> or <a href="https://t.me/nawfas" target="_blank" style="color: var(--accent);">Telegram</a>.</p>
+    <p>
+      You can DM me on
+      <a
+        href="https://discord.com/users/622098045110190080"
+        target="_blank"
+        style="color: var(--accent);"
+        >Discord</a
+      >
+      or
+      <a
+        href="https://t.me/nawfas"
+        target="_blank"
+        style="color: var(--accent);"
+        >Telegram</a
+      >.
+    </p>
   </section>
 
   <section id="children">
     <h2>Mes Enfants</h2>
     <div class="children-list">
-      <a class="child" href="https://discord.com/users/274878108920709130" target="_blank" title="cocorisss">
-        <img src="https://cdn.discordapp.com/avatars/274878108920709130/8ecf2b1d04d3cabc5bbf49d69115a2f6.png?size=80" alt="https://i.imgur.com/xtIqWIf.png" onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/0.png';">
+      <a
+        class="child"
+        href="https://discord.com/users/274878108920709130"
+        target="_blank"
+        title="cocorisss"
+      >
+        <img
+          src="https://i.imgur.com/xtIqWIf.jpg"
+          alt="cocorisss"
+          onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/0.png';"
+        />
         cocorisss
       </a>
-      <a class="child" href="https://discord.com/users/629969824273006624" target="_blank" title="kikem">
-        <img src="https://cdn.discordapp.com/avatars/629969824273006624/f0d4e6f27b93433d0f99d5f7e911ecb1.png?size=80" alt="https://i.imgur.com/bDt6KiB.png" onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/1.png';">
+      <a
+        class="child"
+        href="https://discord.com/users/629969824273006624"
+        target="_blank"
+        title="kikem"
+      >
+        <img
+          src="https://i.imgur.com/bDt6KiB.jpg"
+          alt="kikem"
+          onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/1.png';"
+        />
         kikem
       </a>
-      <a class="child" href="https://discord.com/users/680817639823769695" target="_blank" title="kazha">
-        <img src="https://cdn.discordapp.com/avatars/680817639823769695/a_0d7a2530e1d73a71dc68144bf207a056.gif?size=80" alt="https://i.imgur.com/SbYZmTn.png" onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/2.png';">
+      <a
+        class="child"
+        href="https://discord.com/users/680817639823769695"
+        target="_blank"
+        title="kazha"
+      >
+        <img
+          src="https://i.imgur.com/SbYZmTn.jpg"
+          alt="kazha"
+          onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/2.png';"
+        />
         kazha
       </a>
-      <a class="child" href="https://discord.com/users/1058790924253151292" target="_blank" title="lerfif">
-        <img src="https://cdn.discordapp.com/avatars/1058790924253151292/53d72e2330fbb9de4b2d76447ca49f34.png?size=80" alt="https://i.imgur.com/SjRXf4F.png" onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/3.png';">
+      <a
+        class="child"
+        href="https://discord.com/users/1058790924253151292"
+        target="_blank"
+        title="lerfif"
+      >
+        <img
+          src="https://i.imgur.com/SjRXf4F.jpg"
+          alt="lerfif"
+          onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/3.png';"
+        />
         lerfif
       </a>
     </div>
@@ -326,15 +416,14 @@
     // Disparition du "scroll down" quand on scroll un peu
     const scrollDown = document.getElementById('scroll-down');
     window.addEventListener('scroll', () => {
-      if(window.scrollY > 50) {
+      if (window.scrollY > 50) {
         scrollDown.style.opacity = '0';
         scrollDown.style.pointerEvents = 'none';
       } else {
-        scrollDown.style.opacity = '1';
+        scrollDown.style.opacity = '0.6';
         scrollDown.style.pointerEvents = 'auto';
       }
     });
   </script>
-
 </body>
 </html>
