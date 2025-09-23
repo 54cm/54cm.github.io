@@ -31,6 +31,7 @@
     header {
       padding: 80px 20px 40px;
       text-align: center;
+      position: relative;
     }
 
     .profile {
@@ -55,12 +56,93 @@
       margin: 0 auto 50px;
     }
 
+    /* Scroll down invite */
+    #scroll-down {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 500;
+      color: var(--accent);
+      font-size: 1rem;
+      cursor: default;
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: bounce 2s infinite;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    #scroll-down span {
+      font-size: 1.5rem;
+      margin-top: 5px;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      40% {
+        transform: translateX(-50%) translateY(8px);
+      }
+      60% {
+        transform: translateX(-50%) translateY(4px);
+      }
+    }
+
     section {
       padding: 40px 20px;
       max-width: 800px;
       margin: auto;
     }
 
+    /* Programs & Skills */
+    #programs {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    #programs h2 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 90px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid var(--accent);
+      color: var(--text);
+      font-weight: 600;
+      cursor: default;
+      transition: background 0.3s ease;
+    }
+
+    .skill-item:hover {
+      background: var(--accent);
+      color: #000;
+    }
+
+    .skill-item img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 8px;
+    }
+
+    /* Links */
     .links {
       display: flex;
       flex-direction: column;
@@ -93,7 +175,7 @@
       height: 24px;
     }
 
-    /* Styles pour la section Children */
+    /* Children */
     #children {
       margin-top: 60px;
       text-align: center;
@@ -142,6 +224,7 @@
       opacity: 0.4;
       font-size: 0.9rem;
     }
+
   </style>
 </head>
 <body>
@@ -150,7 +233,49 @@
     <img class="profile" src="https://i.imgur.com/xUg1vph.jpeg" alt="NawFas Profile Picture">
     <h1>NawFas</h1>
     <p class="description">Web developer & le grand a Myamo.</p>
+    <div id="scroll-down">
+      Scroll down
+      <span>↓</span>
+    </div>
   </header>
+
+  <section id="programs">
+    <h2>Programs & Skills</h2>
+    <div class="skills-list">
+      <div class="skill-item" title="Java">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java icon" />
+        Java
+      </div>
+      <div class="skill-item" title="Python">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python icon" />
+        Python
+      </div>
+      <div class="skill-item" title="C++">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++ icon" />
+        C++
+      </div>
+      <div class="skill-item" title="HTML5">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5 icon" />
+        HTML5
+      </div>
+      <div class="skill-item" title="CSS3">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3 icon" />
+        CSS3
+      </div>
+      <div class="skill-item" title="JavaScript">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript icon" />
+        JavaScript
+      </div>
+      <div class="skill-item" title="React">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React icon" />
+        React
+      </div>
+      <div class="skill-item" title="Node.js">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js icon" />
+        Node.js
+      </div>
+    </div>
+  </section>
 
   <section id="links">
     <h2>My Links</h2>
@@ -171,32 +296,45 @@
     <p>You can DM me on <a href="https://discord.com/users/622098045110190080" target="_blank" style="color: var(--accent);">Discord</a> or <a href="https://t.me/nawfas" target="_blank" style="color: var(--accent);">Telegram</a>.</p>
   </section>
 
- <section id="children">
-  <h2>Mes Enfants</h2>
-  <div class="children-list">
-    <a class="child" href="https://discord.com/users/274878108920709130" target="_blank" title="cocorisss">
-      <img src="https://cdn.discordapp.com/avatars/274878108920709130/8ecf2b1d04d3cabc5bbf49d69115a2f6.png?size=80" alt="https://i.imgur.com/xtIqWIf.png" onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/0.png';">
-      cocorisss
-    </a>
-    <a class="child" href="https://discord.com/users/629969824273006624" target="_blank" title="kikem">
-      <img src="https://cdn.discordapp.com/avatars/629969824273006624/f0d4e6f27b93433d0f99d5f7e911ecb1.png?size=80" alt="https://i.imgur.com/bDt6KiB.png" onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/1.png';">
-      kikem
-    </a>
-    <a class="child" href="https://discord.com/users/680817639823769695" target="_blank" title="kazha">
-      <img src="https://cdn.discordapp.com/avatars/680817639823769695/a_0d7a2530e1d73a71dc68144bf207a056.gif?size=80" alt="https://i.imgur.com/SbYZmTn.png" onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/2.png';">
-      kazha
-    </a>
-    <a class="child" href="https://discord.com/users/1058790924253151292" target="_blank" title="lerfif">
-      <img src="https://cdn.discordapp.com/avatars/1058790924253151292/53d72e2330fbb9de4b2d76447ca49f34.png?size=80" alt="https://i.imgur.com/SjRXf4F.png" onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/3.png';">
-      lerfif
-    </a>
-  </div>
-</section>
+  <section id="children">
+    <h2>Mes Enfants</h2>
+    <div class="children-list">
+      <a class="child" href="https://discord.com/users/274878108920709130" target="_blank" title="cocorisss">
+        <img src="https://cdn.discordapp.com/avatars/274878108920709130/8ecf2b1d04d3cabc5bbf49d69115a2f6.png?size=80" alt="https://i.imgur.com/xtIqWIf.png" onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/0.png';">
+        cocorisss
+      </a>
+      <a class="child" href="https://discord.com/users/629969824273006624" target="_blank" title="kikem">
+        <img src="https://cdn.discordapp.com/avatars/629969824273006624/f0d4e6f27b93433d0f99d5f7e911ecb1.png?size=80" alt="https://i.imgur.com/bDt6KiB.png" onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/1.png';">
+        kikem
+      </a>
+      <a class="child" href="https://discord.com/users/680817639823769695" target="_blank" title="kazha">
+        <img src="https://cdn.discordapp.com/avatars/680817639823769695/a_0d7a2530e1d73a71dc68144bf207a056.gif?size=80" alt="https://i.imgur.com/SbYZmTn.png" onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/2.png';">
+        kazha
+      </a>
+      <a class="child" href="https://discord.com/users/1058790924253151292" target="_blank" title="lerfif">
+        <img src="https://cdn.discordapp.com/avatars/1058790924253151292/53d72e2330fbb9de4b2d76447ca49f34.png?size=80" alt="https://i.imgur.com/SjRXf4F.png" onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/3.png';">
+        lerfif
+      </a>
+    </div>
+  </section>
 
   <footer>
     © 2025 NawFas
   </footer>
 
+  <script>
+    // Disparition du "scroll down" quand on scroll un peu
+    const scrollDown = document.getElementById('scroll-down');
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 50) {
+        scrollDown.style.opacity = '0';
+        scrollDown.style.pointerEvents = 'none';
+      } else {
+        scrollDown.style.opacity = '1';
+        scrollDown.style.pointerEvents = 'auto';
+      }
+    });
+  </script>
+
 </body>
 </html>
-
