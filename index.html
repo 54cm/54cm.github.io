@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>NawFas - Développeur web Theme</title>
+  <title>NawFas - White Glass Theme</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="https://i.imgur.com/Ivn6c8P.jpeg" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
@@ -22,7 +22,6 @@
     html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
     body{display:flex;flex-direction:column;min-height:100vh}
 
-    /* Utility: visually hidden (for accessible link text) */
     .sr-only{position:absolute !important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;border:0;padding:0;margin:-1px}
 
     header{
@@ -36,7 +35,6 @@
       overflow:hidden;
     }
 
-    /* subtle background texture (pure CSS) */
     header::before{
       content:'';position:absolute;inset:0;backdrop-filter: blur(8px) saturate(120%);-webkit-backdrop-filter: blur(8px) saturate(120%);
       background: radial-gradient(closest-side, rgba(255,255,255,0.015), transparent 40%);
@@ -65,10 +63,7 @@
     h1{font-size:2.4rem;color:var(--accent);letter-spacing:0.2px}
     p.lead{color:var(--muted);max-width:720px;text-align:center}
 
-    /* Links area: icons only */
-    .links{
-      display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:6px
-    }
+    .links{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:6px}
 
     .link-btn{
       width:56px;height:56px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;
@@ -82,10 +77,8 @@
 
     .link-btn:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,6,23,0.6)}
 
-    /* Icon treatment: force light/white icons (best-effort) */
     .link-btn img{width:26px;height:26px;object-fit:contain;filter:invert(1) saturate(0) brightness(2)}
 
-    /* tooltip on hover */
     .link-btn[title]{position:relative}
     .link-btn[title]:hover::after{
       content:attr(title);
@@ -95,13 +88,11 @@
 
     section{padding:40px 20px;max-width:920px;margin:0 auto}
 
-    /* Programs grid - subtle cards */
     .skills{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
     .skill{width:110px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);display:flex;flex-direction:column;align-items:center;gap:8px}
     .skill img{width:36px;height:36px;filter:invert(1) saturate(0) brightness(2)}
     .skill span{font-size:13px;color:var(--muted)}
 
-    /* children list */
     .children-list{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
     .child{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--text)}
     .child img{width:76px;height:76px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.7)}
@@ -109,7 +100,6 @@
 
     footer{padding:36px 20px;text-align:center;color:rgba(255,255,255,0.45);margin-top:auto}
 
-    /* responsive */
     @media(max-width:520px){
       .card{padding:20px}
       h1{font-size:1.6rem}
@@ -122,9 +112,8 @@
     <div class="card">
       <img class="profile" src="https://i.imgur.com/xUg1vph.jpeg" alt="NawFas profile" />
       <h1>NawFas</h1>
-      <p class="lead">Web developer.</p>
+      <p class="lead">Web developer — thème transparent / effet verre (blur) — icônes seulement.</p>
 
-      <!-- Links: icons only, accessible labels -->
       <div class="links" aria-label="Liens rapides">
         <a class="link-btn" href="https://guns.lol/pdg" target="_blank" rel="noopener" title="guns.lol" aria-label="guns.lol">
           <img src="https://i.imgur.com/652lgtx.png" alt="guns.lol" />
@@ -135,7 +124,7 @@
           <span class="sr-only">haunt.gg</span>
         </a>
         <a class="link-btn" href="https://discord.com/users/622098045110190080" target="_blank" rel="noopener" title="Discord" aria-label="Discord">
-          <img src="https://i.imgur.com/KiywElo.png" alt="Discord" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discord/discord-original.svg" alt="Discord" />
           <span class="sr-only">Discord</span>
         </a>
         <a class="link-btn" href="https://namemc.com/profile/NawFas" target="_blank" rel="noopener" title="NameMC" aria-label="NameMC">
@@ -143,11 +132,11 @@
           <span class="sr-only">NameMC</span>
         </a>
         <a class="link-btn" href="https://open.spotify.com/user/31pbha3bzpzblgijzujj5hrpwj7m" target="_blank" rel="noopener" title="Spotify" aria-label="Spotify">
-          <img src="https://i.imgur.com/MjL7KCJ.png" alt="Spotify" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spotify/spotify-original.svg" alt="Spotify" />
           <span class="sr-only">Spotify</span>
         </a>
         <a class="link-btn" href="https://www.youtube.com/@9H13" target="_blank" rel="noopener" title="YouTube" aria-label="YouTube">
-          <img src="https://i.imgur.com/fiYUGOz.png" alt="YouTube" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/youtube/youtube-original.svg" alt="YouTube" />
           <span class="sr-only">YouTube</span>
         </a>
         <a class="link-btn" href="https://t.me/nawfas" target="_blank" rel="noopener" title="Telegram @nawfas" aria-label="Telegram @nawfas">
@@ -204,8 +193,6 @@
   </footer>
 
   <script>
-    // hide the "scroll down" behaviour from original — keep simple
-    // small enhancement: keyboard accessible focus outlines for link buttons
     document.querySelectorAll('.link-btn').forEach(btn=>{
       btn.addEventListener('focus',()=>btn.style.boxShadow='0 18px 40px rgba(2,6,23,0.6)');
       btn.addEventListener('blur',()=>btn.style.boxShadow='0 6px 18px rgba(2,6,23,0.5)');
@@ -213,4 +200,3 @@
   </script>
 </body>
 </html>
-
