@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <title>NawFas - Web Dev</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   
   <link rel="icon" href="https://i.imgur.com/Ivn6c8P.jpeg" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
-
+  
   <style>
     :root {
       --accent: #a259ff;
@@ -22,28 +22,18 @@
     }
 
     html, body {
-      height: 100%;
       font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
       scroll-behavior: smooth;
-    }
-
-    body {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      height: 100%;
+      overflow-x: hidden;
     }
 
     header {
-      height: 100vh; /* prend toute la hauteur de la fenêtre */
       padding: 80px 20px 40px;
       text-align: center;
       position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
     }
 
     .profile {
@@ -54,6 +44,7 @@
       border: 3px solid var(--accent);
       box-shadow: 0 0 15px #a259ff88;
       margin-bottom: 20px;
+      background: #222;
     }
 
     h1 {
@@ -68,156 +59,96 @@
       margin: 0 auto 50px;
     }
 
-    /* Scroll down invite */
+    /* Scroll down - juste flèche fixe */
     #scroll-down {
-      position: absolute;
-      bottom: 10px;
+      position: fixed;
+      bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
       font-weight: 500;
       color: var(--accent);
-      font-size: 1rem;
-      cursor: default;
-      user-select: none;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      animation: bounce 2s infinite;
-      opacity: 0.6;
-      transition: opacity 0.3s ease;
-      background: transparent;
-    }
-
-    #scroll-down:hover {
-      opacity: 1;
-    }
-
-    #scroll-down span {
-      font-size: 1.5rem;
-      margin-top: 5px;
-    }
-
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% {
-        transform: translateX(-50%) translateY(0);
-      }
-      40% {
-        transform: translateX(-50%) translateY(8px);
-      }
-      60% {
-        transform: translateX(-50%) translateY(4px);
-      }
-    }
-
-    section {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    /* Programs & Skills */
-    #programs {
-      margin-top: 20px;
-      text-align: center;
-    }
-
-    #programs h2 {
       font-size: 2rem;
-      margin-bottom: 25px;
+      user-select: none;
+      pointer-events: none;
+      opacity: 0.8;
     }
 
-    .skills-list {
+    /* Effet verre flou pour container liens et enfants */
+    .blur-container {
+      backdrop-filter: blur(10px);
+      background: rgba(255 255 255 / 0.05);
+      border-radius: 15px;
+      padding: 20px 30px;
+      margin: 30px auto;
+      max-width: 500px;
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
+      gap: 25px;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
-    .skill-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 90px;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 10px;
-      border-radius: 10px;
-      border: 1px solid var(--accent);
-      color: var(--text);
-      font-weight: 600;
-      cursor: default;
-      transition: background 0.3s ease;
+    .blur-container.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .skill-item:hover {
-      background: var(--accent);
-      color: #000;
-    }
-
-    .skill-item img {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 8px;
-    }
-
-    /* Links */
+    /* Liens uniquement icônes */
     .links {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-top: 20px;
+      gap: 25px;
     }
 
     .links a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.05);
-      padding: 14px 20px;
-      border: 1px solid var(--accent);
-      border-radius: 10px;
-      transition: 0.3s ease;
-      font-weight: 500;
-      gap: 10px;
+      display: block;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 8px #a259ff88;
+      cursor: pointer;
+      transition: border-color 0.3s ease;
     }
 
     .links a:hover {
-      background: var(--accent);
-      color: #000;
+      border-color: #fff;
+      box-shadow: 0 0 15px #a259ff;
     }
 
-    .icon {
-      width: 24px;
-      height: 24px;
+    .links img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
-    /* Children */
-    #children {
-      margin-top: 60px;
-      text-align: center;
-    }
-
+    /* Section enfants - mêmes styles que liens */
     #children h2 {
-      margin-bottom: 25px;
+      text-align: center;
+      margin-top: 60px;
+      color: var(--accent);
       font-size: 2rem;
+      user-select: none;
     }
 
     .children-list {
-      display: flex;
       justify-content: center;
       gap: 30px;
       flex-wrap: wrap;
+      display: flex;
     }
 
     .child {
-      text-decoration: none;
-      color: var(--text);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100px;
-      transition: transform 0.2s ease;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      overflow: hidden;
+      box-shadow: 0 0 10px #a259ff88;
+      cursor: pointer;
+      transition: transform 0.3s ease;
     }
 
     .child:hover {
@@ -225,23 +156,13 @@
     }
 
     .child img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      border: 2px solid var(--accent);
-      margin-bottom: 8px;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      box-shadow: 0 0 10px #a259ff88;
+      display: block;
       background: #222;
     }
 
-    footer {
-      text-align: center;
-      padding: 60px 20px 30px;
-      opacity: 0.4;
-      font-size: 0.9rem;
-      margin-top: auto;
-    }
   </style>
 </head>
 <body>
@@ -250,180 +171,80 @@
     <img class="profile" src="https://i.imgur.com/xUg1vph.jpeg" alt="NawFas Profile Picture" />
     <h1>NawFas</h1>
     <p class="description">Web developer & le grand a Myamo.</p>
-    <div id="scroll-down">
-      Scroll down
-      <span>↓</span>
-    </div>
   </header>
 
-  <section id="programs">
-    <h2>Programs & Skills</h2>
-    <div class="skills-list">
-      <div class="skill-item" title="Java">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java icon" />
-        Java
-      </div>
-      <div class="skill-item" title="Python">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python icon" />
-        Python
-      </div>
-      <div class="skill-item" title="C++">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++ icon" />
-        C++
-      </div>
-      <div class="skill-item" title="HTML5">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5 icon" />
-        HTML5
-      </div>
-      <div class="skill-item" title="CSS3">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3 icon" />
-        CSS3
-      </div>
-      <div class="skill-item" title="JavaScript">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript icon" />
-        JavaScript
-      </div>
-      <div class="skill-item" title="React">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React icon" />
-        React
-      </div>
-      <div class="skill-item" title="Node.js">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js icon" />
-        Node.js
-      </div>
-    </div>
+  <!-- Scroll down flèche fixe -->
+  <div id="scroll-down">↓</div>
+
+  <!-- Liens, uniquement icônes, fond flou -->
+  <section id="links" class="blur-container">
+    <a href="https://guns.lol/pdg" target="_blank" title="guns.lol">
+      <img src="https://i.imgur.com/652lgtx.png" alt="guns.lol" />
+    </a>
+    <a href="https://haunt.gg/buy" target="_blank" title="haunt.gg">
+      <img src="https://i.imgur.com/kzD3nDk.png" alt="haunt.gg" />
+    </a>
+    <a href="https://discord.com/users/622098045110190080" target="_blank" title="Discord">
+      <img src="https://i.imgur.com/KiywElo.png" alt="Discord" />
+    </a>
+    <a href="https://namemc.com/profile/NawFas" target="_blank" title="NameMC">
+      <img src="https://i.imgur.com/kWimggv.jpeg" alt="NameMC" />
+    </a>
+    <a href="https://open.spotify.com/user/31pbha3bzpzblgijzujj5hrpwj7m" target="_blank" title="Spotify">
+      <img src="https://i.imgur.com/MjL7KCJ.png" alt="Spotify" />
+    </a>
+    <a href="https://www.youtube.com/@9H13" target="_blank" title="YouTube">
+      <img src="https://i.imgur.com/fiYUGOz.png" alt="YouTube" />
+    </a>
+    <a href="https://t.me/nawfas" target="_blank" title="Telegram @nawfas">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" />
+    </a>
+    <a href="https://t.me/tyzance" target="_blank" title="Telegram @tyzance">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" />
+    </a>
   </section>
 
-  <section id="links">
-    <h2>My Links</h2>
-    <div class="links">
-      <a href="https://guns.lol/pdg" target="_blank"
-        ><img class="icon" src="https://i.imgur.com/652lgtx.png" /> guns.lol</a
-      >
-      <a href="https://haunt.gg/buy" target="_blank"
-        ><img class="icon" src="https://i.imgur.com/kzD3nDk.png" /> haunt.gg</a
-      >
-      <a href="https://discord.com/users/622098045110190080" target="_blank"
-        ><img class="icon" src="https://i.imgur.com/KiywElo.png" /> Discord</a
-      >
-      <a href="https://namemc.com/profile/NawFas" target="_blank"
-        ><img class="icon" src="https://i.imgur.com/kWimggv.jpeg" /> NameMC</a
-      >
-      <a href="https://open.spotify.com/user/31pbha3bzpzblgijzujj5hrpwj7m" target="_blank"
-        ><img class="icon" src="https://i.imgur.com/MjL7KCJ.png" /> Spotify</a
-      >
-      <a href="https://www.youtube.com/@9H13" target="_blank"
-        ><img class="icon" src="https://i.imgur.com/fiYUGOz.png" /> YouTube</a
-      >
-      <a href="https://t.me/nawfas" target="_blank"
-        ><img
-          class="icon"
-          src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
-        /> Telegram @nawfas</a
-      >
-      <a href="https://t.me/tyzance" target="_blank"
-        ><img
-          class="icon"
-          src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
-        /> Telegram @tyzance</a
-      >
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>
-      You can DM me on
-      <a
-        href="https://discord.com/users/622098045110190080"
-        target="_blank"
-        style="color: var(--accent);"
-        >Discord</a
-      >
-      or
-      <a
-        href="https://t.me/nawfas"
-        target="_blank"
-        style="color: var(--accent);"
-        >Telegram</a
-      >.
-    </p>
-  </section>
-
-  <section id="children">
+  <!-- Enfants, fond flou -->
+  <section id="children" class="blur-container">
     <h2>Mes Enfants</h2>
     <div class="children-list">
-      <a
-        class="child"
-        href="https://discord.com/users/274878108920709130"
-        target="_blank"
-        title="cocorisss"
-      >
-        <img
-          src="https://i.imgur.com/xtIqWIf.jpg"
-          alt="cocorisss"
-          onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/0.png';"
-        />
-        cocorisss
+      <a class="child" href="https://discord.com/users/274878108920709130" target="_blank" title="cocorisss">
+        <img src="https://cdn.discordapp.com/avatars/274878108920709130/8ecf2b1d04d3cabc5bbf49d69115a2f6.png?size=80" alt="cocorisss" onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/0.png';" />
       </a>
-      <a
-        class="child"
-        href="https://discord.com/users/629969824273006624"
-        target="_blank"
-        title="kikem"
-      >
-        <img
-          src="https://i.imgur.com/bDt6KiB.jpg"
-          alt="kikem"
-          onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/1.png';"
-        />
-        kikem
+      <a class="child" href="https://discord.com/users/629969824273006624" target="_blank" title="kikem">
+        <img src="https://cdn.discordapp.com/avatars/629969824273006624/f0d4e6f27b93433d0f99d5f7e911ecb1.png?size=80" alt="kikem" onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/1.png';" />
       </a>
-      <a
-        class="child"
-        href="https://discord.com/users/680817639823769695"
-        target="_blank"
-        title="kazha"
-      >
-        <img
-          src="https://i.imgur.com/SbYZmTn.jpg"
-          alt="kazha"
-          onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/2.png';"
-        />
-        kazha
+      <a class="child" href="https://discord.com/users/680817639823769695" target="_blank" title="kazha">
+        <img src="https://cdn.discordapp.com/avatars/680817639823769695/a_0d7a2530e1d73a71dc68144bf207a056.gif?size=80" alt="kazha" onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/2.png';" />
       </a>
-      <a
-        class="child"
-        href="https://discord.com/users/1058790924253151292"
-        target="_blank"
-        title="lerfif"
-      >
-        <img
-          src="https://i.imgur.com/SjRXf4F.jpg"
-          alt="lerfif"
-          onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/3.png';"
-        />
-        lerfif
+      <a class="child" href="https://discord.com/users/1058790924253151292" target="_blank" title="lerfif">
+        <img src="https://cdn.discordapp.com/avatars/1058790924253151292/53d72e2330fbb9de4b2d76447ca49f34.png?size=80" alt="lerfif" onerror="this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/3.png';" />
       </a>
     </div>
   </section>
 
-  <footer>
-    © 2025 NawFas
-  </footer>
-
   <script>
-    // Disparition du "scroll down" quand on scroll un peu
-    const scrollDown = document.getElementById('scroll-down');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        scrollDown.style.opacity = '0';
-        scrollDown.style.pointerEvents = 'none';
-      } else {
-        scrollDown.style.opacity = '0.6';
-        scrollDown.style.pointerEvents = 'auto';
-      }
-    });
+    // Faire apparaître les sections au scroll (fade-in + slide-up)
+    function isInViewport(element) {
+      const rect = element.getBoundingClientRect();
+      return (
+        rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85
+      );
+    }
+
+    function handleScroll() {
+      const containers = document.querySelectorAll('.blur-container');
+      containers.forEach(container => {
+        if (isInViewport(container)) {
+          container.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    // Trigger au chargement si déjà visible
+    window.addEventListener('load', handleScroll);
   </script>
+
 </body>
 </html>
